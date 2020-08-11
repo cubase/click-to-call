@@ -4,15 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Click-to-Call WebComponent</title>
-    <script
-      async
-      defer
-      data-callto="sip:<callto>@<pbx_hostname>>"
-      data-position="left"
-      data-text="Call us!"
-      src="dist/ctc.js"
-    ></script>
+    <title>Click-to-Call Example</title>
     <style>
       html {
         height: 100%;
@@ -22,7 +14,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: sans-serif;
       }
       h1 {
         text-transform: uppercase;
@@ -32,5 +24,17 @@
   </head>
   <body>
     <h1>Click-to-Call example</h1>
+    <!-- INSERT STARTUP SCRIPT HERE -->
+    <script type="text/javascript">
+      !(function (e, t) {
+        const c = t.createElement('script'),
+          n = t.getElementsByTagName('head')[0]
+        ;(e._ipex_ctc_ = { _id: 'MjM1NV8x' }),
+          (c.type = 'text/javascript'),
+          (c.async = !0),
+          (c.src = 'dist/bundle.js'),
+          n.appendChild(c)
+      })(window, document)
+    </script>
   </body>
 </html>

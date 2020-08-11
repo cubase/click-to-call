@@ -1,14 +1,4 @@
-# ✆ Click-to-Call WebComponent
-
-<p>
-    <img src="https://user-images.githubusercontent.com/29258951/73121083-687dff00-3f76-11ea-8d89-cf8b53863c54.jpg">
-</p>
-
-[**DEMO EXAMPLE**](https://cubase.github.io/c2c-example/)
-
-[![Strict TypeScript Checked](https://badgen.net/badge/TS/Strict 'Strict TypeScript Checked')](https://www.typescriptlang.org)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/cubase/call-to-webrtc.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cubase/call-to-webrtc/context:javascript)
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/cubase/call-to-webrtc/blob/master/LICENSE.md)
+# ✆ IPEX Click-to-Call
 
 ## What is Click-to-Call?
 
@@ -18,10 +8,10 @@ The definition of click-to-call (which is sometimes called click-to-talk, or cli
 
 ## List of used technologies
 
-- [Preact + preact-custom-element](https://github.com/preactjs/preact)
+- [React](https://github.com/reactjs)
 - [TypeScript](https://github.com/microsoft/TypeScript)
 - [JsSIP](https://github.com/versatica/JsSIP)
-- [Rollup](https://github.com/rollup/rollup)
+- [Webpack](https://github.com/webpack/webpack)
 
 ## Getting started
 
@@ -31,70 +21,29 @@ After `npm install` run:
 npm run dev
 ```
 
-Development server serves `index.html` file in root direactory
+Development server serves `index.html` file in root directory
 
-> Note: Rollup automatically takes care about
-> hot reloading after source files change.
+> Note: Webpack in development mode is configured to auto-refresh the page after code changes.
 
 ## Production build
 
-Production build is generated using:
+Production build is generated using command:
 
 ```
 npm run build
 ```
 
-into `dist/ctc.min.js`.
+Output file is located in `dist/bundle.js`.
 
 ## Using on webpage
 
-After project is built paste this code snippet into website `<head />` tag:
-
-> **View** `index.html`
+Best way to use this script on a webpage is generating startup script which will include and initialize main script after page is loaded.
+Startup script is generated using command:
 
 ```
-<script
-      async
-      defer
-      src="dist/ctc.min.js"
-      data-uri="sip:<USERNAME>@<PBX_URL>"
-      data-user="<USERNAME>"
-      data-password="<PASSWORD>"
-      data-socket="wss://<PBX_WEBSOCKET_URL>"
-      data-callto="sip:<NUMBER_TO_CALL>@<PBX_URL>"
-      <!-- data-color="green"  -->  Custom color
-      <!-- data-position="left"  -->  Custom position ('right' is default)
-      <!-- data-text="Call us!"  -->  Custom bubble text
->
-</script>
+npm run create-startup
 ```
-
-> **Do not forget**: Update `src` path if you will be using different folder structure!
-
-#### `c2c` API
-You can initialize Click-To-Call button on your own.
-
-##### c2c.init([config])
-```
-c2c.init({
-    uri: 'sip:myusername@<pbx.hostname.com>',
-    user: 'myusername',
-    password: 'mypassword',
-    socket: 'wss://pbx.websockethostname.com',
-    callto: 'sip:callto@<pbx.hostname.com>',
-    color: 'green',
-    position: 'left',
-    text: 'Call us!'
-})
-```
-
-## Customizing automatic run
-
-Current version is developed with running script immediately after its load if script contains required `data-` attributes. You can modify this behavior in `src/click-to-call.ts` file.
 
 ## Compatibility
 
-Current version does not support any mobile devices. Rendering is skipped due to WebRTC compatibility also on Internet Explorer browser. 
-## License
-
-[MIT](https://github.com/cubase/call-to-webrtc/blob/master/LICENSE.md)
+Current version does not support any mobile devices. Rendering is skipped due to WebRTC compatibility also on Internet Explorer browser.

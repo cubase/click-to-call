@@ -1,0 +1,86 @@
+Arguments: 
+  /usr/local/bin/node /home/cubase/.yarn/bin/yarn.js
+
+PATH: 
+  /home/cubase/.yarn/bin:/home/cubase/.config/yarn/global/node_modules/.bin:/home/cubase/.local/bin:/home/cubase/bin:/usr/share/Modules/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.18.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Invariant Violation: could not find a copy of eslint to link in /home/cubase/PROJEKTY/click-to-call/node_modules/eslint-config-standard-preact/node_modules
+      at invariant (/home/cubase/.yarn/lib/cli.js:2314:15)
+      at PackageLinker.<anonymous> (/home/cubase/.yarn/lib/cli.js:48716:7)
+      at Generator.next (<anonymous>)
+      at step (/home/cubase/.yarn/lib/cli.js:310:30)
+      at /home/cubase/.yarn/lib/cli.js:321:13
+      at runMicrotasks (<anonymous>)
+      at processTicksAndRejections (internal/process/task_queues.js:97:5)
+
+npm manifest: 
+  {
+    "name": "ctc-webcomponent",
+    "version": "1.0.0",
+    "description": "Click-to-Call button powered by WebRTC and JsSIP",
+    "main": "dist/c2c.min.js",
+    "scripts": {
+      "dev": "rm -rf dist & npx webpack-dev-server",
+      "build": "rm -rf dist & env NODE_ENV=production npx webpack"
+    },
+    "author": "cubase@Jakub Konecny",
+    "license": "ISC",
+    "dependencies": {
+      "classnames": "^2.2.6",
+      "emotion": "^10.0.17",
+      "jssip": "^3.3.11",
+      "lodash.isequal": "^4.5.0",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1",
+      "tslib": "^1.10.0",
+      "typescript": "^3.9.7",
+      "webrtc-adapter": "^7.3.0"
+    },
+    "devDependencies": {
+      "@types/classnames": "^2.2.9",
+      "@types/jssip": "^3.3.1",
+      "@types/lodash": "^4.14.149",
+      "@types/lodash.isequal": "^4.5.5",
+      "@types/react": "^16.9.44",
+      "@types/react-dom": "^16.9.8",
+      "@typescript-eslint/eslint-plugin": "^2.13.0",
+      "@typescript-eslint/parser": "^2.13.0",
+      "clean-webpack-plugin": "^3.0.0",
+      "env-cmd": "^10.1.0",
+      "eslint": "^6.5.1",
+      "eslint-config-prettier": "^6.4.0",
+      "eslint-config-standard": "^14.1.0",
+      "eslint-config-standard-preact": "^1.1.6",
+      "eslint-plugin-import": "^2.18.2",
+      "eslint-plugin-node": "^10.0.0",
+      "eslint-plugin-prettier": "^3.1.1",
+      "eslint-plugin-promise": "^4.2.1",
+      "eslint-plugin-react": "^7.16.0",
+      "eslint-plugin-react-hooks": "^2.1.2",
+      "eslint-plugin-standard": "^4.0.1",
+      "prettier": "^2.0.5",
+      "terser-webpack-plugin": "^4.1.0",
+      "ts-loader": "^8.0.2",
+      "tsconfig-paths-webpack-plugin": "^3.3.0",
+      "url-loader": "^4.1.0",
+      "webpack": "^4.44.1",
+      "webpack-cli": "^3.3.12",
+      "webpack-dev-server": "^3.11.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

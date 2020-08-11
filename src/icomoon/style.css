@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('fonts/icomoon.ttf?7d5mja') format('truetype'),
+    url('fonts/icomoon.woff?7d5mja') format('woff'),
+    url('fonts/icomoon.svg?7d5mja#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconclock:before {
+  content: "\e902";
+}
+.iconcalendar:before {
+  content: "\e903";
+}
+.iconphone-hang-up:before {
+  content: "\e906";
+}
+.iconphone:before {
+  content: "\e907";
+}

@@ -28,12 +28,14 @@
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/camelcase": "off",
+    "import/no-duplicates": "off",
     "object-curly-spacing": ["error", "always"],
     "allowMultiplePropertiesPerLine": 0,
     "prettier/prettier": ["error"],
     "react/display-name": 0,
-    "react/prop-types": "error",
     "no-mixed-spaces-and-tabs": 2,
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-sort-props": [
@@ -49,10 +51,10 @@
   },
   "extends": [
     "standard",
-    "standard-preact",
     "prettier",
     "prettier/react",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
   ]
 }

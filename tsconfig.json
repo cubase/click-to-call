@@ -1,21 +1,19 @@
 {
-    "compilerOptions": {
-      "outDir": "./dist",
-      "target": "es5",
-      "module": "commonjs",
-      "noImplicitAny": true,
-      "removeComments": true,
-      "sourceMap": true,
-      "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "alwaysStrict": true,
-      "strictNullChecks": true,
-      "downlevelIteration": true,
-      "jsx": "react",
-      "jsxFactory": "h",
-    },
-    "include": [
-      "./src/**/*.tsx",
-      "./src/**/*.ts",
-    ],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "downlevelIteration": true,
+    "jsx": "react",
+    "baseUrl": "./src",
+    "rootDir": "./src"
+  },
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }
