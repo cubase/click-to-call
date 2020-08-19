@@ -14,7 +14,6 @@ const navigationStyles: ThemedStyleFunction = ({ color }) => css`
   color: rgb(187, 187, 187);
 
   & > li {
-    flex: 1;
     text-align: center;
     margin: 0 1.5em;
     padding: 15px 10px;

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import { css } from 'emotion'
 
-import { CallButton, BubbleWrapper } from 'components'
+import { CallButton, BubbleContainer } from 'components'
 import { GlobalContext, GlobalContextState } from 'context'
 
 import { withTheme, ThemedStyleFunction } from 'lib/withTheme'
@@ -45,7 +45,7 @@ const App = ({ context }: AppProps): JSX.Element => {
     <GlobalContext.Provider value={context}>
       <div className={withTheme(appStyles, context.theme)} id={`ctc-${context.appId}`}>
         <CallButton onClick={handleToggleBubble} />
-        {showBubble && <BubbleWrapper onClose={handleCloseBubble} />}
+        {showBubble && <BubbleContainer onClose={handleCloseBubble} />}
       </div>
     </GlobalContext.Provider>
   )

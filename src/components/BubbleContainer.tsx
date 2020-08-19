@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { Navigation, BubbleLayout } from 'components/common'
 import { useGlobalContext } from 'hooks/common'
+import { isToday } from 'lib/dateHelpers'
 
 import CallLater from 'components/forms/CallLater'
 import CallNow from 'components/forms/CallNow'
@@ -11,10 +12,12 @@ const callModules = [
   {
     label: 'Zavolat přes prohlížeč',
     value: 'callWebRtc',
+    isBasedOnWorkingHours: true,
   },
   {
     label: 'Zavolejte mi nyní',
     value: 'callNow',
+    isBasedOnWorkingHours: true,
   },
   {
     label: 'Zavolejte mi později',
@@ -22,8 +25,8 @@ const callModules = [
   },
 ]
 
-const renderForm = (module: string): JSX.Element | null => {
-  switch (module) {
+const getForm = (type: string): JSX.Element | null => {
+  switch (type) {
     case 'callWebRtc':
       return <CallWebRTC />
     case 'callNow':
@@ -35,21 +38,31 @@ const renderForm = (module: string): JSX.Element | null => {
   }
 }
 
-const getAvailableModules = (allowedModules: { [key: string]: boolean }) =>
-  callModules.filter((callModule) => allowedModules[callModule.value])
+const getAvailableModules = (
+  allowedModules: { [key: string]: boolean },
+  availableTimestamps: number[]
+) => {
+  const isOutOfWorkingHours = availableTimestamps.every((timestamp) => !isToday(timestamp))
+  return callModules.filter((callModule) => {
+    if (callModule.isBasedOnWorkingHours && isOutOfWorkingHours) {
+      return false
+    }
+    return allowedModules[callModule.value]
+  })
+}
 
-type BubbleWrapperProps = {
+type BubbleContainerProps = {
   onClose: () => void
 }
 
-const BubbleWrapper = ({ onClose }: BubbleWrapperProps): JSX.Element => {
-  const { modules } = useGlobalContext()
-  const availableModules = getAvailableModules(modules)
+const BubbleContainer = ({ onClose }: BubbleContainerProps): JSX.Element => {
+  const { modules, availableTimestamps } = useGlobalContext()
+  const availableModules = getAvailableModules(modules, availableTimestamps)
   const [selectedModule, setSelectedModule] = useState(availableModules[0])
 
   return (
     <BubbleLayout
-      form={renderForm(selectedModule.value)}
+      form={getForm(selectedModule.value)}
       navigation={
         <Navigation
           options={availableModules}
@@ -62,4 +75,4 @@ const BubbleWrapper = ({ onClose }: BubbleWrapperProps): JSX.Element => {
   )
 }
 
-export default BubbleWrapper
+export default BubbleContainer

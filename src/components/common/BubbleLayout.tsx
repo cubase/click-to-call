@@ -14,7 +14,7 @@ const bubbleLayoutStyles: ThemedStyleFunction = ({ position }) => css`
   ${position === 'left' ? 'left: calc(50% - 50px);' : 'right: calc(50% - 50px);'}
   bottom: calc(100% + 30px);
   margin: 0;
-  min-width: 450px;
+  min-width: 500px;
   padding: 20px 80px;
   color: #444;
   background-color: #fcfcfc;
